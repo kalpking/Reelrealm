@@ -27,6 +27,13 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 // Register Endpoint
+app.get('/',async(req,res)=>{
+    try {
+        res.status(200).send({success:true});
+    } catch (error) {
+        return error;
+    }
+})
 app.post('/api/register', async (req, res) => {
     try {
         const { name, email, password } = req.body;
